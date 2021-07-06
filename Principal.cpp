@@ -1,7 +1,11 @@
 #include <stdio.h>
-#include "iostream"
+#include <iostream>
+#include <string>
+using namespace std;
 
 int main() {
-	std::cout << "h";
+	string hola;
+	hola = "me cagoios";
+	cout << hola;
 	return 0;
 }
