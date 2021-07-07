@@ -12,7 +12,9 @@
 const unsigned int DIRECCION_INICIO = 0x200; //Dirección desde la que empezará a ejecutar instruccions la cpu   
 
 /**
-* Procedimiento que carga a la memoria el contenido 
+* Procedimiento que carga a la memoria el contenido de una ROM
+* mete el contenido en un buffer y desde este lo vuelca a la memoria
+* Por último borra el buffer.
 */
 void Chip8::cargarROM(string nombreROM) {
 	/* Abre la ROM como un archivo binario y mueve el puntero del archivo hasta el final*/
