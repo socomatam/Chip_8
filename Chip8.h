@@ -21,7 +21,9 @@ class Chip8
 {
 public:
 	Chip8();
+
 	void cargarROM(string nombreROM);
+	void cargarSetFuentes();
 
 
 	//Componentes del emulador
