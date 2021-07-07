@@ -1,5 +1,6 @@
 /*
-* Carga el contenido de la ROM al emulador
+* Carga el contenido de la ROM al emulador.
+* Los 
 * 
 * 
 */
@@ -11,6 +12,7 @@
 //--------Variables globales-------------//
 const unsigned int DIRECCION_INICIO = 0x200; //Dirección desde la que empezará a ejecutar instruccions la cpu   
 const unsigned int TAMANIO_SETFUENTES = 80;
+const unsigned int DIRECCION_INICIO_SETFUENTES = 0x50;
 
 Chip8::Chip8() {
 	contadorPrograma = DIRECCION_INICIO;
@@ -22,7 +24,7 @@ Chip8::Chip8() {
 * para cargarlos en la memoria. Cada uno de estos carácteres, en binario,
 * representan píxeles en pantalla.
 */
-void cargarSetFuentes() {
+void Chip8::cargarSetFuentes() {
 
 	uint8_t setFuentes[TAMANIO_SETFUENTES] = {
 		0xF0, 0x90, 0x90, 0x90, 0xF0, // 0
@@ -42,6 +44,10 @@ void cargarSetFuentes() {
 		0xF0, 0x80, 0xF0, 0x80, 0xF0, // E
 		0xF0, 0x80, 0xF0, 0x80, 0x80  // F
 	};
+
+	for (unsigned int i = 0; i < TAMANIO_SETFUENTES; ++i ) {
+		memoria[DIRECCION_INICIO_SETFUENTES + i] = setFuentes[i];
+	}
 }
 
 /**
